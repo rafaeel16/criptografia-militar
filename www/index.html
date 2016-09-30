@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+    <!--
+  * Please see the included README.md file for license terms and conditions.
+  -->
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="media_button_bar/css/media_button_bar.css">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+        <title>Criptografia Militar</title>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+        <!--
+  * The "meta viewport" tag (below) helps your app size appropriately to a device's ideal viewport.
+  * Note that Windows device viewports work better when initialized using the @viewport CSS rule.
+  * For a quick overview of "meta viewport" and @viewport, see this article:
+  *   http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag
+  * To see how it works, try your app on a real device with and without a "meta viewport" tag.
+  * Additional useful references include:
+  *   http://www.quirksmode.org/mobile/viewports.html
+  *   http://www.quirksmode.org/mobile/metaviewport/devices.html
+  *   https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
+-->
+
+        <!-- <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1"> -->
+        <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=2"> -->
+
+        <style>
+            /* following three (cascaded) are equivalent to above three meta viewport statements */
+            /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html */
+            /* see http://dev.w3.org/csswg/css-device-adapt/ */
+                @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+                @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+                /*@-ms-viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }   @viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }*/
+        </style>
+
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" type="text/css" href="css/index_main.less.css" class="main-less">
+
+        <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
+        <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work below -->
+        <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
+
+        <!-- Recommended location for your JavaScript libraries -->
+        <!-- These library references (below) are just examples to give you the general idea... -->
+        <!-- <script src="lib/mc/hammer.js"></script> -->
+        <!-- <script src="lib/ft/fastclick.js"></script> -->
+
+        <!--
+  * cordova.js is a phantom lib for "Cordova HTML5 web app," it does nothing in a "Standard HTML5 web app"
+  * Seeing a "Failed to load resource: net::ERR_FILE_NOT_FOUND" message caused by this "cordova.js" script?
+  * The cordova.js script is required if you convert your "Standard HTML5" project into a "Cordova" project.
+  * You can safely ignore the error or comment out this line if you will not be developing a Cordova app.
+-->
+        <script src="cordova.js" id="xdkJScordova_"></script>
+
+        <!-- for your event code, see README and file comments for details -->
+        <script src="js/init-app.js"></script>
+        <!-- for your init code, see README and file comments for details -->
+        <script src="xdk/init-dev.js"></script>
+        <!-- normalizes device and document ready events, see file for details -->
+        <script src="js/jquery-1.9.js"></script>
+        <script src="js/admob.js"></script>
+        <script src="js/app.js"></script>
+    </head>
+
+    <body>
+        <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
+        <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work above -->
+        <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
+        <div class="upage vertical-col left" id="mainpage">
+            <div class="tarea widget uib_w_7 d-margins txt_1" data-uib="media/text" data-ver="0" name="uib_w_7">
+                <div class="widget-container left-receptacle"></div>
+                <div class="widget-container right-receptacle"></div>
+                <div class="text-container">
+                    <p>Criptografia Militar</p>
+                </div>
+            </div>
+            <div class="table-thing widget uib_w_1 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+                <label class="narrow-control" for="txtA"></label>
+                <input class="wide-control form-control default" type="text" placeholder="Frase" id="txtA">
+            </div>
+            <div class="table-thing widget uib_w_2 d-margins" data-uib="twitter%20bootstrap/text_area" data-ver="1">
+                <label class="narrow-control"></label>
+                <textarea rows="4" class="wide-control form-control" wrap="soft" placeholder="Tradução" id="txtB"></textarea>
+            </div>
+            <div class="uib-button-bar widget uib_w_3 d-margins" data-uib="media/button_bar" data-ver="0">
+                <a class="uib-graphic-button default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_4 default-graphic-sizing media-button-text-bottom" data-uib="media/graphic_button" data-ver="0" id="Traduzir">
+                    <img>
+                    <span class="uib-caption">Traduzir</span>
+                </a>
+                <a class="uib-graphic-button hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_5 default-graphic-sizing d-margins media-button-text-bottom" data-uib="media/graphic_button" data-ver="0" id="Limpar">
+                    <img>
+                    <span class="uib-caption">Limpar</span>
+                </a>
+            </div>
+            <button class="btn widget uib_w_6 d-margins default-graphic-text btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="copiar">Copiar Tradução</button>
+
+        </div>
+
+        <script>
+            //Chama a Função através do ID ao ser clicada
+            document.getElementById("Traduzir").onclick = Traduzir;
+            document.getElementById("Limpar").onclick = Limpar;
+
+        function Limpar() {
+            document.getElementById("txtB").value = "";
+            document.getElementById("txtA").value = "";
+        }
+
+        function Traduzir(){
+	       var txtA = document.getElementById("txtA").value;
+	       var i;
+	       var palavra;
+	       var tamanho = txtA.length;
+	       //var palavra = new Array(tamanho);
+	       //palavra[0] = txtA;
+	       document.getElementById("txtB").value = "";
+	       for (i=0; i<tamanho; i++){
+		   palavra = txtA.substring(i,i+1);
+		   //document.getElementById("txtB").value = palavra;
+		   Dicionario(palavra);
+	       }
+
+        }
+
+        function Dicionario(letra){
+            var nome2;
+            nome2 = document.getElementById("txtB").value;
+            if (letra == "A" || letra == "a") nome2 = nome2 + "ALPHA ";
+            if (letra == "B" || letra == "b") nome2 = nome2 + "BRAVO ";
+            if (letra == "C" || letra == "c") nome2 = nome2 + "CHARLIE ";
+            if (letra == "Ç" || letra == "ç") nome2 = nome2 + "CHARLIE ";
+            if (letra == "D" || letra == "d") nome2 = nome2 + "DELTA ";
+            if (letra == "E" || letra == "e") nome2 = nome2 + "ECHO ";
+            if (letra == "F" || letra == "f") nome2 = nome2 + "FOXTROT ";
+            if (letra == "G" || letra == "g") nome2 = nome2 + "GOLF ";
+            if (letra == "H" || letra == "h") nome2 = nome2 + "HOTEL ";
+            if (letra == "I" || letra == "i") nome2 = nome2 + "INDIA ";
+            if (letra == "J" || letra == "j") nome2 = nome2 + "JULIET ";
+            if (letra == "K" || letra == "k") nome2 = nome2 + "KILO ";
+            if (letra == "L" || letra == "l") nome2 = nome2 + "LIMA ";
+            if (letra == "M" || letra == "m") nome2 = nome2 + "MIKE ";
+            if (letra == "N" || letra == "n") nome2 = nome2 + "NOVEMBER ";
+            if (letra == "O" || letra == "o") nome2 = nome2 + "OSCAR ";
+            if (letra == "P" || letra == "p") nome2 = nome2 + "PAPA ";
+            if (letra == "Q" || letra == "q") nome2 = nome2 + "QUEBEC ";
+            if (letra == "R" || letra == "r") nome2 = nome2 + "ROMEO ";
+            if (letra == "S" || letra == "s") nome2 = nome2 + "SIERRA ";
+            if (letra == "T" || letra == "t") nome2 = nome2 + "TANGO ";
+            if (letra == "U" || letra == "u") nome2 = nome2 + "UNIFORM ";
+            if (letra == "V" || letra == "v") nome2 = nome2 + "VICTOR ";
+            if (letra == "W" || letra == "w") nome2 = nome2 + "WHISKEY ";
+            if (letra == "X" || letra == "x") nome2 = nome2 + "X-RAY ";
+            if (letra == "Y" || letra == "y") nome2 = nome2 + "YANKEE ";
+            if (letra == "Z" || letra == "z") nome2 = nome2 + "ZULU ";
+            document.getElementById("txtB").value = nome2;
+        
+        }
+            
+		//Este bloco realiza a copia do texto para o Ctrl C(Clipboard)	
+        var copyTextareaBtn = document.querySelector('#copiar');
+
+		  copyTextareaBtn.addEventListener('click', function(event) {
+		  var copyTextarea = document.querySelector('#txtB');
+		  copyTextarea.select();
+
+        try {
+			var successful = document.execCommand('copy');
+			var msg = successful ? 'successful' : 'unsuccessful';
+			console.log('Copying text command was ' + msg);
+		} catch (err) {
+			console.log('Oops, unable to copy');
+			}
+		});
+        </script>
+    </body>
+
+</html>
