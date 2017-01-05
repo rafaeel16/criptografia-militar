@@ -7,11 +7,19 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-device": {},
-        "cordova-plugin-statusbar": {},
-        "cordova-plugin-admobpro": {}
+        "cordova-plugin-admobpro": {
+            "PACKAGE_NAME": "HelloCordova"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "HelloCordova"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "HelloCordova"
+        }
     },
     "dependent_plugins": {
-        "cordova-plugin-extension": {}
+        "cordova-plugin-extension": {
+            "PACKAGE_NAME": "HelloCordova"
+        }
     }
 }

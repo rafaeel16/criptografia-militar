@@ -54,16 +54,7 @@
   * The cordova.js script is required if you convert your "Standard HTML5" project into a "Cordova" project.
   * You can safely ignore the error or comment out this line if you will not be developing a Cordova app.
 -->
-        <script src="cordova.js" id="xdkJScordova_"></script>
 
-        <!-- for your event code, see README and file comments for details -->
-        <script src="js/init-app.js"></script>
-        <!-- for your init code, see README and file comments for details -->
-        <script src="xdk/init-dev.js"></script>
-        <!-- normalizes device and document ready events, see file for details -->
-        <script src="js/jquery-1.9.js"></script>
-        <script src="js/admob.js"></script>
-        <script src="js/app.js"></script>
     </head>
 
     <body>
@@ -80,84 +71,119 @@
             </div>
             <div class="table-thing widget uib_w_1 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
                 <label class="narrow-control" for="txtA"></label>
-                <input class="wide-control form-control default" type="text" placeholder="Frase" id="txtA">
+                <input class="wide-control form-control default" type="text" placeholder="Frase" id="txtA" onkeydown="press(event)">
             </div>
             <div class="table-thing widget uib_w_2 d-margins" data-uib="twitter%20bootstrap/text_area" data-ver="1">
                 <label class="narrow-control"></label>
                 <textarea rows="4" class="wide-control form-control" wrap="soft" placeholder="Tradução" id="txtB"></textarea>
             </div>
-            <div class="uib-button-bar widget uib_w_3 d-margins" data-uib="media/button_bar" data-ver="0">
-                <a class="uib-graphic-button default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_4 default-graphic-sizing media-button-text-bottom" data-uib="media/graphic_button" data-ver="0" id="Traduzir">
-                    <img>
-                    <span class="uib-caption">Traduzir</span>
-                </a>
-                <a class="uib-graphic-button hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_5 default-graphic-sizing d-margins media-button-text-bottom" data-uib="media/graphic_button" data-ver="0" id="Limpar">
-                    <img>
-                    <span class="uib-caption">Limpar</span>
-                </a>
-            </div>
             <button class="btn widget uib_w_6 d-margins default-graphic-text btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="copiar">Copiar Tradução</button>
+            <button class="btn widget uib_w_6 d-margins default-graphic-text btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="limpar">Limpar</button>
 
         </div>
-
+        
+        <script src="cordova.js" id="xdkJScordova_"></script>
+        <!-- for your event code, see README and file comments for details -->
+        <script src="js/init-app.js"></script>
+        <!-- for your init code, see README and file comments for details -->
+        <script src="xdk/init-dev.js"></script>
+        <!-- normalizes device and document ready events, see file for details -->
+        <script src="js/jquery-1.9.js"></script>
+        <script src="js/admob.js"></script>
+        <script src="js/app.js"></script>
+        
         <script>
             //Chama a Função através do ID ao ser clicada
-            document.getElementById("Traduzir").onclick = Traduzir;
-            document.getElementById("Limpar").onclick = Limpar;
+            document.getElementById("limpar").onclick = Limpar;
 
         function Limpar() {
             document.getElementById("txtB").value = "";
             document.getElementById("txtA").value = "";
         }
-
-        function Traduzir(){
-	       var txtA = document.getElementById("txtA").value;
-	       var i;
-	       var palavra;
-	       var tamanho = txtA.length;
-	       //var palavra = new Array(tamanho);
-	       //palavra[0] = txtA;
-	       document.getElementById("txtB").value = "";
-	       for (i=0; i<tamanho; i++){
-		   palavra = txtA.substring(i,i+1);
-		   //document.getElementById("txtB").value = palavra;
-		   Dicionario(palavra);
-	       }
-
-        }
-
-        function Dicionario(letra){
-            var nome2;
-            nome2 = document.getElementById("txtB").value;
-            if (letra == "A" || letra == "a") nome2 = nome2 + "ALPHA ";
-            if (letra == "B" || letra == "b") nome2 = nome2 + "BRAVO ";
-            if (letra == "C" || letra == "c") nome2 = nome2 + "CHARLIE ";
-            if (letra == "Ç" || letra == "ç") nome2 = nome2 + "CHARLIE ";
-            if (letra == "D" || letra == "d") nome2 = nome2 + "DELTA ";
-            if (letra == "E" || letra == "e") nome2 = nome2 + "ECHO ";
-            if (letra == "F" || letra == "f") nome2 = nome2 + "FOXTROT ";
-            if (letra == "G" || letra == "g") nome2 = nome2 + "GOLF ";
-            if (letra == "H" || letra == "h") nome2 = nome2 + "HOTEL ";
-            if (letra == "I" || letra == "i") nome2 = nome2 + "INDIA ";
-            if (letra == "J" || letra == "j") nome2 = nome2 + "JULIET ";
-            if (letra == "K" || letra == "k") nome2 = nome2 + "KILO ";
-            if (letra == "L" || letra == "l") nome2 = nome2 + "LIMA ";
-            if (letra == "M" || letra == "m") nome2 = nome2 + "MIKE ";
-            if (letra == "N" || letra == "n") nome2 = nome2 + "NOVEMBER ";
-            if (letra == "O" || letra == "o") nome2 = nome2 + "OSCAR ";
-            if (letra == "P" || letra == "p") nome2 = nome2 + "PAPA ";
-            if (letra == "Q" || letra == "q") nome2 = nome2 + "QUEBEC ";
-            if (letra == "R" || letra == "r") nome2 = nome2 + "ROMEO ";
-            if (letra == "S" || letra == "s") nome2 = nome2 + "SIERRA ";
-            if (letra == "T" || letra == "t") nome2 = nome2 + "TANGO ";
-            if (letra == "U" || letra == "u") nome2 = nome2 + "UNIFORM ";
-            if (letra == "V" || letra == "v") nome2 = nome2 + "VICTOR ";
-            if (letra == "W" || letra == "w") nome2 = nome2 + "WHISKEY ";
-            if (letra == "X" || letra == "x") nome2 = nome2 + "X-RAY ";
-            if (letra == "Y" || letra == "y") nome2 = nome2 + "YANKEE ";
-            if (letra == "Z" || letra == "z") nome2 = nome2 + "ZULU ";
-            document.getElementById("txtB").value = nome2;
-        
+            
+        function press(event) {
+          var word = event.keyCode;
+          var txtb = [];
+          if (word == 65) {
+            txtb.push("ALPHA");
+          }
+          if (word == 66) {
+            txtb.push("BRAVO");
+          }
+          if (word == 67) {
+            txtb.push("CHARLIE");
+          }
+          if (word == 68) {
+            txtb.push("DELTA");
+          }
+          if (word == 69) {
+            txtb.push("ECHO");
+          }
+          if (word == 70) {
+            txtb.push("FOXTROT");
+          }
+          if (word == 71) {
+            txtb.push("GOLF");
+          }
+          if (word == 72) {
+            txtb.push("HOTEL");
+          }
+          if (word == 73) {
+            txtb.push("INDIA");
+          }
+          if (word == 74) {
+            txtb.push("JULIET");
+          }
+          if (word == 75) {
+            txtb.push("KILO");
+          }
+          if (word == 76) {
+            txtb.push("LIMA");
+          }
+          if (word == 77) {
+            txtb.push("MIKE");
+          }
+          if (word == 78) {
+            txtb.push("NOVEMBER");
+          }
+          if (word == 79) {
+            txtb.push("OSCAR");
+          }
+          if (word == 80) {
+            txtb.push("PAPA");
+          }
+          if (word == 81) {
+            txtb.push("QUEBEC");
+          }
+          if (word == 82) {
+            txtb.push("ROMEO");
+          }
+          if (word == 83) {
+            txtb.push("SIERRA");
+          }
+          if (word == 84) {
+            txtb.push("TANGO");
+          }
+          if (word == 85) {
+            txtb.push("UNIFORM");
+          }
+          if (word == 86) {
+            txtb.push("VICTOR");
+          }
+          if (word == 87) {
+            txtb.push("WHISKEY");
+          }
+          if (word == 88) {
+            txtb.push("X-RAY");
+          }
+          if (word == 89) {
+            txtb.push("YANKEE");
+          }
+          if (word == 90) {
+            txtb.push("ZULU");
+          }
+            
+          document.getElementById("txtB").value += txtb + ' ';
         }
             
 		//Este bloco realiza a copia do texto para o Ctrl C(Clipboard)	
